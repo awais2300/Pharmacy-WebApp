@@ -193,3 +193,139 @@ WHERE [u].[Username] = @__login_Username_0
 2025-05-17 10:22:32.160 +05:00 [INF] Executed endpoint 'ProtectedController.Get (WebAPI)'
 2025-05-17 10:22:32.160 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5222/api/protected - 200 null text/plain; charset=utf-8 1.7739ms
 2025-05-17 10:22:46.346 +05:00 [INF] Application is shutting down...
+2025-05-17 13:03:31.168 +05:00 [INF] User profile is available. Using 'C:\Users\AwaisAhmad\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-05-17 13:03:31.424 +05:00 [INF] Now listening on: http://localhost:5222
+2025-05-17 13:03:31.427 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-05-17 13:03:31.427 +05:00 [INF] Hosting environment: Development
+2025-05-17 13:03:31.427 +05:00 [INF] Content root path: C:\Web-Application\Eg-Group-WebApp\WebAPI
+2025-05-17 13:07:40.987 +05:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5222/api/auth/login - null null
+2025-05-17 13:07:41.014 +05:00 [INF] CORS policy execution successful.
+2025-05-17 13:07:41.033 +05:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5222/api/auth/login - 204 null null 46.4453ms
+2025-05-17 13:07:41.043 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5222/api/auth/login - application/json 29
+2025-05-17 13:07:41.045 +05:00 [INF] CORS policy execution successful.
+2025-05-17 13:07:41.117 +05:00 [WRN] Failed to determine the https port for redirect.
+2025-05-17 13:07:41.119 +05:00 [INF] Executing endpoint 'WebAPI.Controllers.AuthController.Login (WebAPI)'
+2025-05-17 13:07:41.136 +05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(WebAPI.Dtos.LoginDto) on controller WebAPI.Controllers.AuthController (WebAPI).
+2025-05-17 13:07:42.393 +05:00 [INF] Executed DbCommand (55ms) [Parameters=[@__login_Username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[PasswordHash], [u].[Role], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__login_Username_0
+2025-05-17 13:07:42.419 +05:00 [INF] Login attempt for user: null at "2025-05-17T08:07:42.4195729Z"
+2025-05-17 13:07:42.420 +05:00 [INF] Invalid credentials
+2025-05-17 13:07:42.434 +05:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'System.String'.
+2025-05-17 13:07:42.451 +05:00 [INF] Executed action WebAPI.Controllers.AuthController.Login (WebAPI) in 1302.2129ms
+2025-05-17 13:07:42.451 +05:00 [INF] Executed endpoint 'WebAPI.Controllers.AuthController.Login (WebAPI)'
+2025-05-17 13:07:42.476 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5222/api/auth/login - 401 null text/plain; charset=utf-8 1433.8621ms
+2025-05-17 13:07:46.211 +05:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5222/api/auth/login - null null
+2025-05-17 13:07:46.211 +05:00 [INF] CORS policy execution successful.
+2025-05-17 13:07:46.212 +05:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5222/api/auth/login - 204 null null 1.0347ms
+2025-05-17 13:07:46.213 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5222/api/auth/login - application/json 38
+2025-05-17 13:07:46.214 +05:00 [INF] CORS policy execution successful.
+2025-05-17 13:07:46.216 +05:00 [INF] Executing endpoint 'WebAPI.Controllers.AuthController.Login (WebAPI)'
+2025-05-17 13:07:46.216 +05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(WebAPI.Dtos.LoginDto) on controller WebAPI.Controllers.AuthController (WebAPI).
+2025-05-17 13:07:46.246 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__login_Username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[PasswordHash], [u].[Role], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__login_Username_0
+2025-05-17 13:07:46.247 +05:00 [INF] Login attempt for user: null at "2025-05-17T08:07:46.2469866Z"
+2025-05-17 13:07:46.247 +05:00 [INF] Invalid credentials
+2025-05-17 13:07:46.247 +05:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'System.String'.
+2025-05-17 13:07:46.247 +05:00 [INF] Executed action WebAPI.Controllers.AuthController.Login (WebAPI) in 30.4776ms
+2025-05-17 13:07:46.247 +05:00 [INF] Executed endpoint 'WebAPI.Controllers.AuthController.Login (WebAPI)'
+2025-05-17 13:07:46.247 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5222/api/auth/login - 401 null text/plain; charset=utf-8 34.0443ms
+2025-05-17 13:07:50.980 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5222/api/auth/login - application/json 37
+2025-05-17 13:07:50.981 +05:00 [INF] CORS policy execution successful.
+2025-05-17 13:07:50.985 +05:00 [INF] Executing endpoint 'WebAPI.Controllers.AuthController.Login (WebAPI)'
+2025-05-17 13:07:50.985 +05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(WebAPI.Dtos.LoginDto) on controller WebAPI.Controllers.AuthController (WebAPI).
+2025-05-17 13:07:51.053 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__login_Username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[PasswordHash], [u].[Role], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__login_Username_0
+2025-05-17 13:07:51.088 +05:00 [INF] Login attempt for user: awais at "2025-05-17T08:07:51.0881442Z"
+2025-05-17 13:07:51.460 +05:00 [INF] Login Successfull
+2025-05-17 13:07:51.460 +05:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-05-17 13:07:51.466 +05:00 [INF] Executed action WebAPI.Controllers.AuthController.Login (WebAPI) in 480.9972ms
+2025-05-17 13:07:51.466 +05:00 [INF] Executed endpoint 'WebAPI.Controllers.AuthController.Login (WebAPI)'
+2025-05-17 13:07:51.467 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5222/api/auth/login - 200 null application/json; charset=utf-8 486.2657ms
+2025-05-17 13:07:53.191 +05:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5222/api/protected - null null
+2025-05-17 13:07:53.191 +05:00 [INF] CORS policy execution successful.
+2025-05-17 13:07:53.191 +05:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5222/api/protected - 204 null null 0.3552ms
+2025-05-17 13:07:53.193 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5222/api/protected - null null
+2025-05-17 13:07:53.193 +05:00 [INF] CORS policy execution successful.
+2025-05-17 13:07:53.256 +05:00 [INF] Executing endpoint 'ProtectedController.Get (WebAPI)'
+2025-05-17 13:07:53.258 +05:00 [INF] Route matched with {action = "Get", controller = "Protected"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Get() on controller ProtectedController (WebAPI).
+2025-05-17 13:07:53.259 +05:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2025-05-17 13:07:53.259 +05:00 [INF] Executed action ProtectedController.Get (WebAPI) in 0.4161ms
+2025-05-17 13:07:53.259 +05:00 [INF] Executed endpoint 'ProtectedController.Get (WebAPI)'
+2025-05-17 13:07:53.259 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5222/api/protected - 200 null text/plain; charset=utf-8 66.6014ms
+2025-05-17 13:07:53.260 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5222/api/protected - null null
+2025-05-17 13:07:53.261 +05:00 [INF] CORS policy execution successful.
+2025-05-17 13:07:53.263 +05:00 [INF] Executing endpoint 'ProtectedController.Get (WebAPI)'
+2025-05-17 13:07:53.264 +05:00 [INF] Route matched with {action = "Get", controller = "Protected"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Get() on controller ProtectedController (WebAPI).
+2025-05-17 13:07:53.264 +05:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2025-05-17 13:07:53.264 +05:00 [INF] Executed action ProtectedController.Get (WebAPI) in 0.232ms
+2025-05-17 13:07:53.264 +05:00 [INF] Executed endpoint 'ProtectedController.Get (WebAPI)'
+2025-05-17 13:07:53.264 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5222/api/protected - 200 null text/plain; charset=utf-8 3.584ms
+2025-05-17 13:17:04.420 +05:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5222/api/auth/register - null null
+2025-05-17 13:17:04.420 +05:00 [INF] CORS policy execution successful.
+2025-05-17 13:17:04.420 +05:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5222/api/auth/register - 204 null null 0.4686ms
+2025-05-17 13:17:04.422 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5222/api/auth/register - application/json 53
+2025-05-17 13:17:04.422 +05:00 [INF] CORS policy execution successful.
+2025-05-17 13:17:04.422 +05:00 [INF] Executing endpoint 'WebAPI.Controllers.AuthController.Register (WebAPI)'
+2025-05-17 13:17:04.424 +05:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Register(WebAPI.Dtos.RegisterDto) on controller WebAPI.Controllers.AuthController (WebAPI).
+2025-05-17 13:17:04.453 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__registerDto_Username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Username] = @__registerDto_Username_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-05-17 13:17:04.691 +05:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([PasswordHash], [Role], [Username])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2);
+2025-05-17 13:17:04.704 +05:00 [INF] User registered successfully: Awais  at "2025-05-17T08:17:04.7048263Z"
+2025-05-17 13:17:04.705 +05:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2025-05-17 13:17:04.705 +05:00 [INF] Executed action WebAPI.Controllers.AuthController.Register (WebAPI) in 280.2148ms
+2025-05-17 13:17:04.705 +05:00 [INF] Executed endpoint 'WebAPI.Controllers.AuthController.Register (WebAPI)'
+2025-05-17 13:17:04.705 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5222/api/auth/register - 200 null text/plain; charset=utf-8 282.8054ms
+2025-05-17 13:17:17.271 +05:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5222/api/auth/login - null null
+2025-05-17 13:17:17.271 +05:00 [INF] CORS policy execution successful.
+2025-05-17 13:17:17.272 +05:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5222/api/auth/login - 204 null null 0.5355ms
+2025-05-17 13:17:17.274 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5222/api/auth/login - application/json 37
+2025-05-17 13:17:17.274 +05:00 [INF] CORS policy execution successful.
+2025-05-17 13:17:17.274 +05:00 [INF] Executing endpoint 'WebAPI.Controllers.AuthController.Login (WebAPI)'
+2025-05-17 13:17:17.274 +05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(WebAPI.Dtos.LoginDto) on controller WebAPI.Controllers.AuthController (WebAPI).
+2025-05-17 13:17:17.281 +05:00 [INF] Executed DbCommand (4ms) [Parameters=[@__login_Username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[PasswordHash], [u].[Role], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__login_Username_0
+2025-05-17 13:17:17.282 +05:00 [INF] Login attempt for user: Awais  at "2025-05-17T08:17:17.2823302Z"
+2025-05-17 13:17:17.449 +05:00 [INF] Login Successfull
+2025-05-17 13:17:17.449 +05:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-05-17 13:17:17.450 +05:00 [INF] Executed action WebAPI.Controllers.AuthController.Login (WebAPI) in 175.2384ms
+2025-05-17 13:17:17.450 +05:00 [INF] Executed endpoint 'WebAPI.Controllers.AuthController.Login (WebAPI)'
+2025-05-17 13:17:17.450 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5222/api/auth/login - 200 null application/json; charset=utf-8 176.208ms
+2025-05-17 13:17:17.564 +05:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5222/api/protected - null null
+2025-05-17 13:17:17.564 +05:00 [INF] CORS policy execution successful.
+2025-05-17 13:17:17.564 +05:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5222/api/protected - 204 null null 0.3281ms
+2025-05-17 13:17:17.566 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5222/api/protected - null null
+2025-05-17 13:17:17.566 +05:00 [INF] CORS policy execution successful.
+2025-05-17 13:17:17.570 +05:00 [INF] Executing endpoint 'ProtectedController.Get (WebAPI)'
+2025-05-17 13:17:17.570 +05:00 [INF] Route matched with {action = "Get", controller = "Protected"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Get() on controller ProtectedController (WebAPI).
+2025-05-17 13:17:17.570 +05:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2025-05-17 13:17:17.570 +05:00 [INF] Executed action ProtectedController.Get (WebAPI) in 0.3105ms
+2025-05-17 13:17:17.571 +05:00 [INF] Executed endpoint 'ProtectedController.Get (WebAPI)'
+2025-05-17 13:17:17.571 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5222/api/protected - 200 null text/plain; charset=utf-8 4.4004ms
+2025-05-17 13:17:17.572 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5222/api/protected - null null
+2025-05-17 13:17:17.572 +05:00 [INF] CORS policy execution successful.
+2025-05-17 13:17:17.573 +05:00 [INF] Executing endpoint 'ProtectedController.Get (WebAPI)'
+2025-05-17 13:17:17.573 +05:00 [INF] Route matched with {action = "Get", controller = "Protected"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Get() on controller ProtectedController (WebAPI).
+2025-05-17 13:17:17.573 +05:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2025-05-17 13:17:17.573 +05:00 [INF] Executed action ProtectedController.Get (WebAPI) in 0.1969ms
+2025-05-17 13:17:17.573 +05:00 [INF] Executed endpoint 'ProtectedController.Get (WebAPI)'
+2025-05-17 13:17:17.573 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5222/api/protected - 200 null text/plain; charset=utf-8 0.9551ms
+2025-05-17 13:53:59.910 +05:00 [INF] Application is shutting down...

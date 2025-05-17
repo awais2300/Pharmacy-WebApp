@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import { jwtDecode } from 'jwt-decode';
+import { apiGet } from '@/utils/api';
 
 interface JwtPayload {
   // These keys are the full claim URIs exactly as in your token
@@ -41,12 +42,9 @@ export default function Dashboard() {
         setUserRole(role);
         setUsername(name);
 
-        const res = await axios.get('http://localhost:5222/api/protected', {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        const res = await apiGet('/api/protected');
         setMessage(res.data);
+        
       } catch (error) {
         alert('Unauthorized or invalid token. Redirecting to login.');
         localStorage.removeItem('token');

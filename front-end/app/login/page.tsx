@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import toast from 'react-hot-toast';
+import { apiFetch } from '@/utils/api';
 
 export default function LoginPage() {
   const [username, setUsername] = useState('');
@@ -13,7 +14,7 @@ export default function LoginPage() {
   const handleLogin = async () => {
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:5222/api/auth/login", {
+      const res = await apiFetch("/api/auth/login", {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password }),

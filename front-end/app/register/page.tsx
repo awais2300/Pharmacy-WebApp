@@ -2,6 +2,8 @@
 
 import { useRouter } from 'next/navigation';
 import { useState } from "react";
+import toast from 'react-hot-toast';
+import { apiFetch } from '@/utils/api';
 
 export default function Signup() {
   const [username, setUsername] = useState("");
@@ -18,20 +20,20 @@ export default function Signup() {
       return;
     }
 
-    const res = await fetch("http://localhost:5222/api/auth/register", {
+    const res = await apiFetch("/api/auth/register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username, password, role }),
     });
 
     if (res.ok) {
-      alert("User registered successfully!");
+      toast.success('User registered successfully!');
       setUsername("");
       setPassword("");
       setConfirmPassword("");
       setRole(""); 
     } else {
-      alert("Failed to register user");
+      toast.error('Failed to register user');
     }
   }
 
