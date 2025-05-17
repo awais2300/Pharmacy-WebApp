@@ -11,7 +11,7 @@ namespace WebAPI.Services
         {
             if(username == "testuser" && password == "testpass")
             {
-                return "fake-jwt-token";
+                return "jwt-token";
             }
             return null; 
         }
