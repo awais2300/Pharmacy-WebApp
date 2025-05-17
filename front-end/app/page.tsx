@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { jwtDecode } from 'jwt-decode';
+import toast from 'react-hot-toast';
 
 interface JwtPayload {
   username?: string;
@@ -12,6 +13,8 @@ interface JwtPayload {
 export default function Home() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState<string | null>(null);
+  const [loginLoading, setLoginLoading] = useState(false);
+  const [registerLoading, setRegisterLoading] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -34,6 +37,22 @@ export default function Home() {
     localStorage.removeItem('token');
     setIsLoggedIn(false);
     setUsername(null);
+    toast.success('Logged out successfully');
+    router.push('/');
+  };
+
+  const handleLoginClick = () => {
+    setLoginLoading(true);
+    setTimeout(() => {
+      router.push('/login');
+    }, 500);
+  };
+
+  const handleRegisterClick = () => {
+    setRegisterLoading(true);
+    setTimeout(() => {
+      router.push('/register');
+    }, 500);
   };
 
   return (
@@ -53,13 +72,13 @@ export default function Home() {
             </p>
             <button
               onClick={() => router.push('/dashboard')}
-              className="bg-blue-600 text-white px-4 py-2 rounded mb-2 w-full hover:bg-blue-700"
+              className="bg-blue-600 text-white px-4 py-2 rounded mb-2 w-full hover:bg-blue-700 transition"
             >
               Go to Dashboard
             </button>
             <button
               onClick={handleLogout}
-              className="bg-red-500 text-white px-4 py-2 rounded w-full hover:bg-red-600"
+              className="bg-red-500 text-white px-4 py-2 rounded w-full hover:bg-red-600 transition"
             >
               Logout
             </button>
@@ -67,17 +86,33 @@ export default function Home() {
         ) : (
           <>
             <p className="text-gray-700 mb-6">Please login or register to continue.</p>
+
             <button
-              onClick={() => router.push('/login')}
-              className="bg-blue-600 text-white px-4 py-2 rounded mb-2 w-full hover:bg-blue-700"
+              onClick={handleLoginClick}
+              disabled={loginLoading}
+              className={`${
+                loginLoading ? 'bg-blue-400' : 'bg-blue-600 hover:bg-blue-700'
+              } text-white px-4 py-2 rounded mb-2 w-full transition flex items-center justify-center`}
             >
-              Login
+              {loginLoading ? (
+                <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+              ) : (
+                'Login'
+              )}
             </button>
+
             <button
-              onClick={() => router.push('/register')}
-              className="bg-green-600 text-white px-4 py-2 rounded w-full hover:bg-green-700"
+              onClick={handleRegisterClick}
+              disabled={registerLoading}
+              className={`${
+                registerLoading ? 'bg-green-400' : 'bg-green-600 hover:bg-green-700'
+              } text-white px-4 py-2 rounded w-full transition flex items-center justify-center`}
             >
-              Register
+              {registerLoading ? (
+                <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+              ) : (
+                'Register'
+              )}
             </button>
           </>
         )}
