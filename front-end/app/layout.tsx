@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Welcome to EG Group",
+  title: "One Pharmacy",
   description: "Created by Awais Ahmad",
 };
 

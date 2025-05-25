@@ -438,3 +438,27 @@ WHERE [u].[Username] = @__login_Username_0
 2025-05-17 15:44:32.829 +05:00 [INF] Executed endpoint 'ProtectedController.Get (WebAPI)'
 2025-05-17 15:44:32.829 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5222/api/protected - 200 null text/plain; charset=utf-8 7.2354ms
 2025-05-17 15:54:11.713 +05:00 [INF] Application is shutting down...
+2025-05-17 16:21:31.093 +05:00 [INF] User profile is available. Using 'C:\Users\AwaisAhmad\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-05-17 16:21:31.424 +05:00 [INF] Now listening on: http://localhost:5222
+2025-05-17 16:21:31.426 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-05-17 16:21:31.426 +05:00 [INF] Hosting environment: Development
+2025-05-17 16:21:31.426 +05:00 [INF] Content root path: C:\Web-Application\Eg-Group-WebApp\WebAPI
+2025-05-17 16:22:09.554 +05:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5222/api/auth/login - null null
+2025-05-17 16:22:09.623 +05:00 [INF] CORS policy execution successful.
+2025-05-17 16:22:09.648 +05:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5222/api/auth/login - 204 null null 95.2325ms
+2025-05-17 16:22:09.678 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5222/api/auth/login - application/json 29
+2025-05-17 16:22:09.685 +05:00 [INF] CORS policy execution successful.
+2025-05-17 16:22:09.793 +05:00 [WRN] Failed to determine the https port for redirect.
+2025-05-17 16:22:09.797 +05:00 [INF] Executing endpoint 'WebAPI.Controllers.AuthController.Login (WebAPI)'
+2025-05-17 16:22:09.828 +05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(WebAPI.Dtos.LoginDto) on controller WebAPI.Controllers.AuthController (WebAPI).
+2025-05-17 16:22:12.442 +05:00 [INF] Executed DbCommand (56ms) [Parameters=[@__login_Username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[PasswordHash], [u].[Role], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__login_Username_0
+2025-05-17 16:22:12.466 +05:00 [INF] Login attempt for user: null at "2025-05-17T11:22:12.4664143Z"
+2025-05-17 16:22:12.467 +05:00 [INF] Invalid credentials
+2025-05-17 16:22:12.476 +05:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'System.String'.
+2025-05-17 16:22:12.491 +05:00 [INF] Executed action WebAPI.Controllers.AuthController.Login (WebAPI) in 2654.022ms
+2025-05-17 16:22:12.492 +05:00 [INF] Executed endpoint 'WebAPI.Controllers.AuthController.Login (WebAPI)'
+2025-05-17 16:22:12.510 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5222/api/auth/login - 401 null text/plain; charset=utf-8 2832.491ms
+2025-05-17 16:34:37.521 +05:00 [INF] Application is shutting down...

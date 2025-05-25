@@ -1,0 +1,6 @@
+2025-05-18 18:31:37.545 +05:00 [INF] User profile is available. Using 'C:\Users\AwaisAhmad\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-05-18 18:31:38.332 +05:00 [INF] Now listening on: http://localhost:5222
+2025-05-18 18:31:38.337 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-05-18 18:31:38.339 +05:00 [INF] Hosting environment: Development
+2025-05-18 18:31:38.339 +05:00 [INF] Content root path: C:\Web-Application\Eg-Group-WebApp\WebAPI
+2025-05-18 18:39:21.743 +05:00 [INF] Application is shutting down...

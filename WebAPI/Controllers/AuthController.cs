@@ -4,7 +4,6 @@ using System.Text;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using WebAPI.Data;
-using WebAPI.Dtos;
 
 namespace WebAPI.Controllers
 {
@@ -63,9 +62,14 @@ namespace WebAPI.Controllers
 
                 var user = new User
                 {
+                    FullName = registerDto.FullName,
                     Username = registerDto.Username,
                     PasswordHash = BCrypt.Net.BCrypt.HashPassword(registerDto.Password),
-                    Role = registerDto.Role
+                    Email = registerDto.Email,
+                    Phone = registerDto.Phone,
+                    Role = registerDto.Role,
+                    IsActive = true,  // Optional, default true
+                    CreatedAt = DateTime.UtcNow
                 };
 
                 _context.Users.Add(user);
@@ -76,10 +80,9 @@ namespace WebAPI.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error while registeration {UserId}", registerDto.Username);
-                return StatusCode(500);
+                _logger.LogError(ex, "Error while registration {UserId}", registerDto.Username);
+                return StatusCode(500, new { error = ex.Message, stackTrace = ex.StackTrace });
             }
-            
         }
 
         private string GenerateToken(User user)
