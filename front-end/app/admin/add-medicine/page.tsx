@@ -10,9 +10,11 @@ export default function AddMedicinePage() {
   const [categoryId, setCategoryId] = useState('');
   const [supplierId, setSupplierId] = useState('');
   const [price, setPrice] = useState('');
+  const [PurchasePrice, setPurchasePrice] = useState('');
   const [quantity, setQuantity] = useState('');
   const [expiryDate, setExpiryDate] = useState('');
   const [description, setDescription] = useState('');
+  const [RackNumber, setRackNumber] = useState('');
   const [categories, setCategories] = useState([]);
   const [suppliers, setSuppliers] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -44,9 +46,11 @@ export default function AddMedicinePage() {
           categoryId: parseInt(categoryId),
           supplierId: parseInt(supplierId),
           price: parseFloat(price),
+          PurchasePrice: parseFloat(PurchasePrice),
           quantity: parseInt(quantity),
           expiryDate,
           description,
+          RackNumber
         }),
       });
 
@@ -82,11 +86,15 @@ export default function AddMedicinePage() {
             {suppliers.map((sup: any) => <option key={sup.id} value={sup.id}>{sup.name}</option>)}
           </select>
 
-          <input type="number" step="0.01" placeholder="Price" value={price} onChange={e => setPrice(e.target.value)} required className="w-full p-3 border rounded-lg" />
+          <input type="number" step="0.01" placeholder="Purchase Price" value={PurchasePrice} onChange={e => setPurchasePrice(e.target.value)} required className="w-full p-3 border rounded-lg" />
+          
+          <input type="number" step="0.01" placeholder="Price" value={price} onChange={e => setPrice(e.target.value)} required className="w-full p-3 border rounded-lg" />      
 
           <input type="number" placeholder="Quantity" value={quantity} onChange={e => setQuantity(e.target.value)} required className="w-full p-3 border rounded-lg" />
 
           <input type="date" placeholder="Expiry Date" value={expiryDate} onChange={e => setExpiryDate(e.target.value)} className="w-full p-3 border rounded-lg" />
+
+          <input type="text" placeholder="Rack Number" value={RackNumber} onChange={e => setRackNumber(e.target.value)} className="w-full p-3 border rounded-lg" />
 
           <textarea placeholder="Description" value={description} onChange={e => setDescription(e.target.value)} className="w-full p-3 border rounded-lg" />
 

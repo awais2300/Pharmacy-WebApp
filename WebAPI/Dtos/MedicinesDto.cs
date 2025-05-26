@@ -20,6 +20,10 @@ namespace WebAPI.Dtos
         public decimal Price { get; set; }
 
         [Required]
+        [Range(0.01, double.MaxValue, ErrorMessage = "Purchase Price must be greater than 0.")]
+        public decimal PurchasePrice { get; set; }
+
+        [Required]
         [Range(0, int.MaxValue, ErrorMessage = "Quantity must be 0 or more.")]
         public int Quantity { get; set; }
 
@@ -27,5 +31,8 @@ namespace WebAPI.Dtos
 
         [MaxLength(255)]
         public string? Description { get; set; }
+
+        [MaxLength(255)]
+        public string? RackNumber { get; set; }
     }
 }

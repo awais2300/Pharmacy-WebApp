@@ -91,7 +91,9 @@ namespace WebAPI.Controllers
                 Price = medicineDto.Price,
                 Quantity = medicineDto.Quantity,
                 ExpiryDate = medicineDto.ExpiryDate,
-                Description = medicineDto.Description
+                Description = medicineDto.Description,
+                PurchasePrice = medicineDto.PurchasePrice,
+                RackNumber = medicineDto.RackNumber
             };
 
             _context.Medicines.Add(medicine);

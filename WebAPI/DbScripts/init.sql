@@ -56,6 +56,8 @@ CREATE TABLE Medicines (
     CategoryId INT FOREIGN KEY REFERENCES Categories(Id),
     SupplierId INT FOREIGN KEY REFERENCES Suppliers(Id),
     Price DECIMAL(10, 2) NOT NULL,
+    PurchasePrice DECIMAL(10, 2) NULL,
+    RackNumber NVARCHAR(100),
     Quantity INT NOT NULL,
     ExpiryDate DATE,
     Description NVARCHAR(255)

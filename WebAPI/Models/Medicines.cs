@@ -22,6 +22,9 @@ namespace WebAPI.Models
         [Column(TypeName = "decimal(10,2)")]
         public decimal Price { get; set; }
 
+        [Column(TypeName = "decimal(10,2)")]
+        public decimal PurchasePrice { get; set; }
+
         public int Quantity { get; set; }
 
         [DataType(DataType.Date)]
@@ -29,6 +32,9 @@ namespace WebAPI.Models
 
         [MaxLength(255)]
         public string? Description { get; set; }
+
+        [MaxLength(100)]
+        public string? RackNumber { get; set; }
 
         // Navigation properties
         public Categories Category { get; set; }
