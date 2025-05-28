@@ -132,6 +132,12 @@ export default function SaleMedicinePage() {
         }
     };
 
+    const handleRemoveRow = (index: number) => {
+        const updatedItems = [...saleItems];
+        updatedItems.splice(index, 1);
+        setSaleItems(updatedItems);
+    };
+
     const generateReport = () => {
         if (!selectedCustomerId) {
             toast.error('Please select a customer before generating report');
@@ -247,6 +253,7 @@ export default function SaleMedicinePage() {
                                 <th className="text-left px-4 py-2">Quantity</th>
                                 <th className="text-left px-4 py-2">Price</th>
                                 <th className="text-left px-4 py-2">Total</th>
+                                <th className="text-left px-4 py-2">Remove</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -282,6 +289,15 @@ export default function SaleMedicinePage() {
                                     <td className="px-4 py-2">PKR. {item.price.toFixed(2)}</td>
                                     <td className="px-4 py-2 font-semibold text-green-700">
                                         PKR. {item.total.toFixed(2)}
+                                    </td>
+                                    <td className="text-center px-4 py-2">
+                                        <button
+                                            onClick={() => handleRemoveRow(index)}
+                                            className="text-red-600 hover:text-red-800"
+                                            title="Remove Row"
+                                        >
+                                            ❌
+                                        </button>
                                     </td>
                                 </tr>
                             ))}

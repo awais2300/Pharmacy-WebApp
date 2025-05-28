@@ -626,3 +626,4 @@ FROM [Users] AS [u]
 2025-05-26 20:55:06.705 +05:00 [INF] Executed action WebAPI.Controllers.AdminController.GetOverviewStats (WebAPI) in 107.3805ms
 2025-05-26 20:55:06.706 +05:00 [INF] Executed endpoint 'WebAPI.Controllers.AdminController.GetOverviewStats (WebAPI)'
 2025-05-26 20:55:06.706 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5222/api/admin/overview - 200 null application/json; charset=utf-8 113.684ms
+2025-05-26 20:58:42.870 +05:00 [INF] Application is shutting down...

@@ -92,7 +92,7 @@ namespace WebAPI.Controllers
                 Quantity = medicineDto.Quantity,
                 ExpiryDate = medicineDto.ExpiryDate,
                 Description = medicineDto.Description,
-                PurchasePrice = medicineDto.PurchasePrice,
+                PurchasePrice = (decimal)medicineDto.PurchasePrice,
                 RackNumber = medicineDto.RackNumber
             };
 
@@ -149,6 +149,29 @@ namespace WebAPI.Controllers
             return Ok(new { message = "Sale saved successfully", orderId = order.Id });
         }
 
+        [HttpPost("expenses")]
+        public async Task<IActionResult> AddExpense([FromBody] DailyExpenseRequest request)
+        {
+            if (request.Items == null || request.Items.Count == 0)
+                return BadRequest("No expense items provided.");
+
+            var expense = new DailyExpense
+            {
+                ExpenseDate = request.Date,
+                Items = request.Items.Select(item => new DailyExpenseItem
+                {
+                    Title = item.Title,
+                    Amount = item.Amount,
+                    Notes = item.Notes
+                }).ToList()
+            };
+
+            _context.DailyExpenses.Add(expense);
+            await _context.SaveChangesAsync();
+
+            return Ok(new { message = "Expense saved", expenseId = expense.Id });
+        }
+
         [HttpGet("overview")]
         public async Task<IActionResult> GetOverviewStats()
         {
@@ -200,7 +223,9 @@ namespace WebAPI.Controllers
                     m.Price,
                     m.Quantity,
                     m.ExpiryDate,
-                    m.Description
+                    m.Description,
+                    m.PurchasePrice,
+                    m.RackNumber
                 }).ToListAsync();
 
             return Ok(medicines);
@@ -270,6 +295,89 @@ namespace WebAPI.Controllers
 
             return Ok(new { orders });
         }
+
+        [HttpGet("AllExpenses")]
+        public async Task<IActionResult> GetAllExpenses()
+        {
+            var expenses = await _context.DailyExpenses
+                .Include(e => e.Items)
+                .OrderByDescending(e => e.ExpenseDate)
+                .Select(e => new {
+                    date = e.ExpenseDate,
+                    items = e.Items.Select(i => new {
+                        title = i.Title,
+                        amount = i.Amount,
+                        notes = i.Notes
+                    })
+                })
+                .ToListAsync();
+
+            return Ok(expenses);
+        }
+
+        [HttpGet("dailyProfit")]
+        public async Task<IActionResult> GetDailyProfit([FromQuery] DateTime date)
+        {
+            var startDate = date.Date;
+            var endDate = startDate.AddDays(1);
+
+            var profit = await (
+                from o in _context.Orders
+                join od in _context.OrderDetails on o.Id equals od.OrderId
+                join m in _context.Medicines on od.MedicineId equals m.Id
+                where o.OrderDate >= startDate && o.OrderDate < endDate
+                select (od.Price - (m.PurchasePrice ?? 0)) * od.Quantity
+            ).SumAsync();
+
+            return Ok(new { total = profit });
+        }
+
+        [HttpGet("dailySale")]
+        public async Task<IActionResult> GetDailySale([FromQuery] DateTime date)
+        {
+            var startDate = date.Date;
+            var endDate = startDate.AddDays(1);
+
+            var dailySale = await (
+                from o in _context.Orders
+                join od in _context.OrderDetails on o.Id equals od.OrderId
+                join m in _context.Medicines on od.MedicineId equals m.Id
+                where o.OrderDate >= startDate && o.OrderDate < endDate
+                select od.Price * od.Quantity
+            ).SumAsync();
+
+            return Ok(new { total = dailySale });
+        }
+
+        [HttpGet("dailyPurchase")]
+        public async Task<IActionResult> GetDailyPurchase([FromQuery] DateTime date)
+        {
+            var startDate = date.Date;
+            var endDate = startDate.AddDays(1);
+
+            var dailyPurchase = await (
+                from o in _context.Orders
+                join od in _context.OrderDetails on o.Id equals od.OrderId
+                join m in _context.Medicines on od.MedicineId equals m.Id
+                where o.OrderDate >= startDate && o.OrderDate < endDate
+                select m.PurchasePrice * od.Quantity
+            ).SumAsync();
+
+            return Ok(new { total = dailyPurchase });
+        }
+
+        [HttpGet("dailyExpensesTotal")]
+        public async Task<IActionResult> GetDailyExpensesTotal([FromQuery] DateTime date)
+        {
+            var total = await _context.DailyExpenses
+                .Where(e => e.ExpenseDate.Date == date.Date)
+                .SelectMany(e => e.Items)
+                .SumAsync(ei => ei.Amount);
+
+            return Ok(new { total });
+        }
+
+
 
         [Authorize]
         [HttpGet("ping")]

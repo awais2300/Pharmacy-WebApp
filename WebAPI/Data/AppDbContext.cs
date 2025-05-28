@@ -13,5 +13,7 @@ namespace WebAPI.Data
         public DbSet<Medicines> Medicines { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
+        public DbSet<DailyExpense> DailyExpenses { get; set; }
+        public DbSet<DailyExpenseItem> DailyExpenseItems { get; set; }
     }
 }

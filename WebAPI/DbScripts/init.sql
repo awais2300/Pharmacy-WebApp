@@ -125,4 +125,18 @@ CREATE TABLE Payments (
     Status NVARCHAR(50) CHECK (Status IN ('Pending', 'Completed', 'Failed')),
     PaidAt DATETIME
 );
+
+CREATE TABLE DailyExpenses (
+    Id INT PRIMARY KEY IDENTITY,
+    ExpenseDate DATE NOT NULL,
+    CreatedAt DATETIME NOT NULL DEFAULT GETDATE()
+);
+
+CREATE TABLE DailyExpenseItems (
+    Id INT PRIMARY KEY IDENTITY,
+    DailyExpenseId INT NOT NULL FOREIGN KEY REFERENCES DailyExpenses(Id) ON DELETE CASCADE,
+    Title NVARCHAR(100) NOT NULL,
+    Amount DECIMAL(18, 2) NOT NULL,
+    Notes NVARCHAR(255)
+);
 GO

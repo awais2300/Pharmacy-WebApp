@@ -126,6 +126,27 @@ export default function Dashboard() {
               <h2 className="text-lg font-semibold text-green-700 mb-2">📋 View Orders</h2>
               <p className="text-gray-600 text-sm">See all customer orders and sales reports.</p>
             </div>
+            <div
+              onClick={() => navigate('/pharmacist/expense')}
+              className="cursor-pointer bg-white shadow-md rounded-xl p-6 hover:shadow-lg border border-purple-200 transition"
+            >
+              <h2 className="text-lg font-semibold text-purple-700 mb-2">📒 Add Daily Expense</h2>
+              <p className="text-gray-600 text-sm">Add daily expense of the pharmacy</p>
+            </div>
+            <div
+              onClick={() => navigate('/pharmacist/view-expenses')}
+              className="cursor-pointer bg-white shadow-md rounded-xl p-6 hover:shadow-lg border border-purple-200 transition"
+            >
+              <h2 className="text-lg font-semibold text-purple-700 mb-2">📒 View Expenses</h2>
+              <p className="text-gray-600 text-sm">View Expenses</p>
+            </div>
+            <div
+              onClick={() => navigate('/pharmacist/daily-income')}
+              className="cursor-pointer bg-white shadow-md rounded-xl p-6 hover:shadow-lg border border-purple-200 transition"
+            >
+              <h2 className="text-lg font-semibold text-purple-700 mb-2">📒 Daily Income Report</h2>
+              <p className="text-gray-600 text-sm">To see daily profit</p>
+            </div>
           </>
         ) : (
           <>

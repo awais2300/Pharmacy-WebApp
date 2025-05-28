@@ -21,7 +21,7 @@ namespace WebAPI.Dtos
 
         [Required]
         [Range(0.01, double.MaxValue, ErrorMessage = "Purchase Price must be greater than 0.")]
-        public decimal PurchasePrice { get; set; }
+        public decimal? PurchasePrice { get; set; }
 
         [Required]
         [Range(0, int.MaxValue, ErrorMessage = "Quantity must be 0 or more.")]

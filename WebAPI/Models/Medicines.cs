@@ -23,7 +23,7 @@ namespace WebAPI.Models
         public decimal Price { get; set; }
 
         [Column(TypeName = "decimal(10,2)")]
-        public decimal PurchasePrice { get; set; }
+        public decimal? PurchasePrice { get; set; }
 
         public int Quantity { get; set; }
 
