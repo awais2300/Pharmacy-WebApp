@@ -5366,3 +5366,174 @@ WHERE [o].[OrderDate] >= @__startDate_0 AND [o].[OrderDate] < @__endDate_1
 2025-05-28 13:46:54.624 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5222/api/admin/dailySale?date=2025-05-28 - 200 null application/json; charset=utf-8 2.9338ms
 2025-05-28 13:46:54.624 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5222/api/admin/dailyExpensesTotal?date=2025-05-28 - 200 null application/json; charset=utf-8 3.1279ms
 2025-05-28 13:50:09.153 +05:00 [INF] Application is shutting down...
+2025-05-28 13:50:25.537 +05:00 [INF] User profile is available. Using 'C:\Users\AwaisAhmad\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-05-28 13:50:26.111 +05:00 [INF] Now listening on: http://localhost:5222
+2025-05-28 13:50:26.118 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-05-28 13:50:26.119 +05:00 [INF] Hosting environment: Development
+2025-05-28 13:50:26.119 +05:00 [INF] Content root path: C:\Web-Application\One-Pharmacy-WebApp\WebAPI
+2025-05-28 13:50:44.339 +05:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5222/api/auth/login - null null
+2025-05-28 13:50:44.402 +05:00 [INF] CORS policy execution successful.
+2025-05-28 13:50:44.412 +05:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5222/api/auth/login - 204 null null 76.1804ms
+2025-05-28 13:50:44.433 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5222/api/auth/login - application/json 41
+2025-05-28 13:50:44.438 +05:00 [INF] CORS policy execution successful.
+2025-05-28 13:50:44.496 +05:00 [WRN] Failed to determine the https port for redirect.
+2025-05-28 13:50:44.499 +05:00 [INF] Executing endpoint 'WebAPI.Controllers.AuthController.Login (WebAPI)'
+2025-05-28 13:50:44.522 +05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(LoginDto) on controller WebAPI.Controllers.AuthController (WebAPI).
+2025-05-28 13:50:45.728 +05:00 [WRN] No store type was specified for the decimal property 'Amount' on entity type 'DailyExpenseItem'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2025-05-28 13:50:47.015 +05:00 [INF] Executed DbCommand (53ms) [Parameters=[@__login_Username_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[FullName], [u].[IsActive], [u].[PasswordHash], [u].[Phone], [u].[Role], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__login_Username_0
+2025-05-28 13:50:47.153 +05:00 [INF] Login attempt for user: arham2300 at "2025-05-28T08:50:47.1530665Z"
+2025-05-28 13:50:48.288 +05:00 [INF] Login Successfull
+2025-05-28 13:50:48.292 +05:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType17`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-05-28 13:50:48.317 +05:00 [INF] Executed action WebAPI.Controllers.AuthController.Login (WebAPI) in 3789.8737ms
+2025-05-28 13:50:48.318 +05:00 [INF] Executed endpoint 'WebAPI.Controllers.AuthController.Login (WebAPI)'
+2025-05-28 13:50:48.334 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5222/api/auth/login - 200 null application/json; charset=utf-8 3902.2846ms
+2025-05-28 13:50:50.311 +05:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5222/api/admin/overview - null null
+2025-05-28 13:50:50.312 +05:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5222/api/admin/overview - null null
+2025-05-28 13:50:50.312 +05:00 [INF] CORS policy execution successful.
+2025-05-28 13:50:50.312 +05:00 [INF] CORS policy execution successful.
+2025-05-28 13:50:50.313 +05:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5222/api/admin/overview - 204 null null 0.7445ms
+2025-05-28 13:50:50.313 +05:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5222/api/admin/overview - 204 null null 1.6614ms
+2025-05-28 13:50:50.316 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5222/api/admin/overview - null null
+2025-05-28 13:50:50.320 +05:00 [INF] CORS policy execution successful.
+2025-05-28 13:50:50.415 +05:00 [INF] Executing endpoint 'WebAPI.Controllers.AdminController.GetOverviewStats (WebAPI)'
+2025-05-28 13:50:50.432 +05:00 [INF] Route matched with {action = "GetOverviewStats", controller = "Admin"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetOverviewStats() on controller WebAPI.Controllers.AdminController (WebAPI).
+2025-05-28 13:50:50.605 +05:00 [INF] Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Medicines] AS [m]
+2025-05-28 13:50:50.636 +05:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM([m].[Quantity]), 0)
+FROM [Medicines] AS [m]
+2025-05-28 13:50:50.643 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Users] AS [u]
+2025-05-28 13:50:50.646 +05:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType3`3[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-05-28 13:50:50.651 +05:00 [INF] Executed action WebAPI.Controllers.AdminController.GetOverviewStats (WebAPI) in 219.1493ms
+2025-05-28 13:50:50.652 +05:00 [INF] Executed endpoint 'WebAPI.Controllers.AdminController.GetOverviewStats (WebAPI)'
+2025-05-28 13:50:50.653 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5222/api/admin/overview - null null
+2025-05-28 13:50:50.653 +05:00 [INF] CORS policy execution successful.
+2025-05-28 13:50:50.654 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5222/api/admin/overview - 200 null application/json; charset=utf-8 337.7981ms
+2025-05-28 13:50:50.658 +05:00 [INF] Executing endpoint 'WebAPI.Controllers.AdminController.GetOverviewStats (WebAPI)'
+2025-05-28 13:50:50.658 +05:00 [INF] Route matched with {action = "GetOverviewStats", controller = "Admin"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetOverviewStats() on controller WebAPI.Controllers.AdminController (WebAPI).
+2025-05-28 13:50:50.769 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Medicines] AS [m]
+2025-05-28 13:50:50.772 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM([m].[Quantity]), 0)
+FROM [Medicines] AS [m]
+2025-05-28 13:50:50.773 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Users] AS [u]
+2025-05-28 13:50:50.773 +05:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType3`3[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-05-28 13:50:50.773 +05:00 [INF] Executed action WebAPI.Controllers.AdminController.GetOverviewStats (WebAPI) in 115.666ms
+2025-05-28 13:50:50.774 +05:00 [INF] Executed endpoint 'WebAPI.Controllers.AdminController.GetOverviewStats (WebAPI)'
+2025-05-28 13:50:50.774 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5222/api/admin/overview - 200 null application/json; charset=utf-8 121.1842ms
+2025-05-28 13:50:55.366 +05:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5222/api/admin/dailyProfit?date=2025-05-28 - null null
+2025-05-28 13:50:55.367 +05:00 [INF] CORS policy execution successful.
+2025-05-28 13:50:55.367 +05:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5222/api/admin/dailyExpensesTotal?date=2025-05-28 - null null
+2025-05-28 13:50:55.367 +05:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5222/api/admin/dailyProfit?date=2025-05-28 - 204 null null 0.4164ms
+2025-05-28 13:50:55.367 +05:00 [INF] CORS policy execution successful.
+2025-05-28 13:50:55.367 +05:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5222/api/admin/dailyExpensesTotal?date=2025-05-28 - 204 null null 0.3051ms
+2025-05-28 13:50:55.370 +05:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5222/api/admin/dailySale?date=2025-05-28 - null null
+2025-05-28 13:50:55.371 +05:00 [INF] CORS policy execution successful.
+2025-05-28 13:50:55.371 +05:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5222/api/admin/dailyPurchase?date=2025-05-28 - null null
+2025-05-28 13:50:55.371 +05:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5222/api/admin/dailySale?date=2025-05-28 - 204 null null 0.2755ms
+2025-05-28 13:50:55.371 +05:00 [INF] CORS policy execution successful.
+2025-05-28 13:50:55.371 +05:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5222/api/admin/dailyPurchase?date=2025-05-28 - 204 null null 0.2084ms
+2025-05-28 13:50:55.371 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5222/api/admin/dailyProfit?date=2025-05-28 - null null
+2025-05-28 13:50:55.371 +05:00 [INF] CORS policy execution successful.
+2025-05-28 13:50:55.372 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5222/api/admin/dailyExpensesTotal?date=2025-05-28 - null null
+2025-05-28 13:50:55.372 +05:00 [INF] Executing endpoint 'WebAPI.Controllers.AdminController.GetDailyProfit (WebAPI)'
+2025-05-28 13:50:55.372 +05:00 [INF] CORS policy execution successful.
+2025-05-28 13:50:55.372 +05:00 [INF] Executing endpoint 'WebAPI.Controllers.AdminController.GetDailyExpensesTotal (WebAPI)'
+2025-05-28 13:50:55.373 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5222/api/admin/dailySale?date=2025-05-28 - null null
+2025-05-28 13:50:55.374 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5222/api/admin/dailyPurchase?date=2025-05-28 - null null
+2025-05-28 13:50:55.374 +05:00 [INF] CORS policy execution successful.
+2025-05-28 13:50:55.374 +05:00 [INF] CORS policy execution successful.
+2025-05-28 13:50:55.374 +05:00 [INF] Executing endpoint 'WebAPI.Controllers.AdminController.GetDailyPurchase (WebAPI)'
+2025-05-28 13:50:55.374 +05:00 [INF] Executing endpoint 'WebAPI.Controllers.AdminController.GetDailySale (WebAPI)'
+2025-05-28 13:50:55.376 +05:00 [INF] Route matched with {action = "GetDailyProfit", controller = "Admin"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetDailyProfit(System.DateTime) on controller WebAPI.Controllers.AdminController (WebAPI).
+2025-05-28 13:50:55.376 +05:00 [INF] Route matched with {action = "GetDailyExpensesTotal", controller = "Admin"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetDailyExpensesTotal(System.DateTime) on controller WebAPI.Controllers.AdminController (WebAPI).
+2025-05-28 13:50:55.377 +05:00 [INF] Route matched with {action = "GetDailyPurchase", controller = "Admin"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetDailyPurchase(System.DateTime) on controller WebAPI.Controllers.AdminController (WebAPI).
+2025-05-28 13:50:55.377 +05:00 [INF] Route matched with {action = "GetDailySale", controller = "Admin"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetDailySale(System.DateTime) on controller WebAPI.Controllers.AdminController (WebAPI).
+2025-05-28 13:50:55.431 +05:00 [INF] Executed DbCommand (7ms) [Parameters=[@__date_Date_0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM([d0].[Amount]), 0.0)
+FROM [DailyExpenses] AS [d]
+INNER JOIN [DailyExpenseItems] AS [d0] ON [d].[Id] = [d0].[DailyExpenseId]
+WHERE CONVERT(date, [d].[ExpenseDate]) = @__date_Date_0
+2025-05-28 13:50:55.434 +05:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType16`1[[System.Decimal, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-05-28 13:50:55.442 +05:00 [INF] Executed DbCommand (6ms) [Parameters=[@__startDate_0='?' (DbType = DateTime2), @__endDate_1='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM([m].[PurchasePrice] * CAST([o0].[Quantity] AS decimal(10,2))), 0.0)
+FROM [Orders] AS [o]
+INNER JOIN [OrderDetails] AS [o0] ON [o].[Id] = [o0].[OrderId]
+INNER JOIN [Medicines] AS [m] ON [o0].[MedicineId] = [m].[Id]
+WHERE [o].[OrderDate] >= @__startDate_0 AND [o].[OrderDate] < @__endDate_1
+2025-05-28 13:50:55.442 +05:00 [INF] Executed action WebAPI.Controllers.AdminController.GetDailyExpensesTotal (WebAPI) in 65.9758ms
+2025-05-28 13:50:55.442 +05:00 [INF] Executed endpoint 'WebAPI.Controllers.AdminController.GetDailyExpensesTotal (WebAPI)'
+2025-05-28 13:50:55.442 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5222/api/admin/dailyExpensesTotal?date=2025-05-28 - 200 null application/json; charset=utf-8 70.3735ms
+2025-05-28 13:50:55.443 +05:00 [INF] Executed DbCommand (7ms) [Parameters=[@__startDate_0='?' (DbType = DateTime2), @__endDate_1='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM([o0].[Price] * CAST([o0].[Quantity] AS decimal(10,2))), 0.0)
+FROM [Orders] AS [o]
+INNER JOIN [OrderDetails] AS [o0] ON [o].[Id] = [o0].[OrderId]
+INNER JOIN [Medicines] AS [m] ON [o0].[MedicineId] = [m].[Id]
+WHERE [o].[OrderDate] >= @__startDate_0 AND [o].[OrderDate] < @__endDate_1
+2025-05-28 13:50:55.443 +05:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType16`1[[System.Decimal, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-05-28 13:50:55.444 +05:00 [INF] Executed action WebAPI.Controllers.AdminController.GetDailySale (WebAPI) in 66.9265ms
+2025-05-28 13:50:55.444 +05:00 [INF] Executed endpoint 'WebAPI.Controllers.AdminController.GetDailySale (WebAPI)'
+2025-05-28 13:50:55.444 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5222/api/admin/dailySale?date=2025-05-28 - 200 null application/json; charset=utf-8 70.4167ms
+2025-05-28 13:50:55.445 +05:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType16`1[[System.Nullable`1[[System.Decimal, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-05-28 13:50:55.445 +05:00 [INF] Executed DbCommand (6ms) [Parameters=[@__startDate_0='?' (DbType = DateTime2), @__endDate_1='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM(([o0].[Price] - COALESCE([m].[PurchasePrice], 0.0)) * CAST([o0].[Quantity] AS decimal(10,2))), 0.0)
+FROM [Orders] AS [o]
+INNER JOIN [OrderDetails] AS [o0] ON [o].[Id] = [o0].[OrderId]
+INNER JOIN [Medicines] AS [m] ON [o0].[MedicineId] = [m].[Id]
+WHERE [o].[OrderDate] >= @__startDate_0 AND [o].[OrderDate] < @__endDate_1
+2025-05-28 13:50:55.446 +05:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType16`1[[System.Decimal, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-05-28 13:50:55.446 +05:00 [INF] Executed action WebAPI.Controllers.AdminController.GetDailyProfit (WebAPI) in 70.2092ms
+2025-05-28 13:50:55.446 +05:00 [INF] Executed endpoint 'WebAPI.Controllers.AdminController.GetDailyProfit (WebAPI)'
+2025-05-28 13:50:55.446 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5222/api/admin/dailyProfit?date=2025-05-28 - 200 null application/json; charset=utf-8 74.9433ms
+2025-05-28 13:50:55.453 +05:00 [INF] Executed action WebAPI.Controllers.AdminController.GetDailyPurchase (WebAPI) in 75.8967ms
+2025-05-28 13:50:55.453 +05:00 [INF] Executed endpoint 'WebAPI.Controllers.AdminController.GetDailyPurchase (WebAPI)'
+2025-05-28 13:50:55.453 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5222/api/admin/dailyPurchase?date=2025-05-28 - 200 null application/json; charset=utf-8 79.1992ms
+2025-05-28 13:50:57.384 +05:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5222/api/admin/overview - null null
+2025-05-28 13:50:57.384 +05:00 [INF] CORS policy execution successful.
+2025-05-28 13:50:57.384 +05:00 [INF] Request starting HTTP/1.1 OPTIONS http://localhost:5222/api/admin/overview - null null
+2025-05-28 13:50:57.384 +05:00 [INF] CORS policy execution successful.
+2025-05-28 13:50:57.384 +05:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5222/api/admin/overview - 204 null null 0.6552ms
+2025-05-28 13:50:57.384 +05:00 [INF] Request finished HTTP/1.1 OPTIONS http://localhost:5222/api/admin/overview - 204 null null 0.1409ms
+2025-05-28 13:50:57.387 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5222/api/admin/overview - null null
+2025-05-28 13:50:57.387 +05:00 [INF] CORS policy execution successful.
+2025-05-28 13:50:57.388 +05:00 [INF] Executing endpoint 'WebAPI.Controllers.AdminController.GetOverviewStats (WebAPI)'
+2025-05-28 13:50:57.388 +05:00 [INF] Route matched with {action = "GetOverviewStats", controller = "Admin"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetOverviewStats() on controller WebAPI.Controllers.AdminController (WebAPI).
+2025-05-28 13:50:57.390 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Medicines] AS [m]
+2025-05-28 13:50:57.391 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM([m].[Quantity]), 0)
+FROM [Medicines] AS [m]
+2025-05-28 13:50:57.392 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Users] AS [u]
+2025-05-28 13:50:57.392 +05:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType3`3[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-05-28 13:50:57.392 +05:00 [INF] Executed action WebAPI.Controllers.AdminController.GetOverviewStats (WebAPI) in 4.2281ms
+2025-05-28 13:50:57.392 +05:00 [INF] Executed endpoint 'WebAPI.Controllers.AdminController.GetOverviewStats (WebAPI)'
+2025-05-28 13:50:57.392 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5222/api/admin/overview - 200 null application/json; charset=utf-8 5.0866ms
+2025-05-28 13:50:57.394 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5222/api/admin/overview - null null
+2025-05-28 13:50:57.394 +05:00 [INF] CORS policy execution successful.
+2025-05-28 13:50:57.395 +05:00 [INF] Executing endpoint 'WebAPI.Controllers.AdminController.GetOverviewStats (WebAPI)'
+2025-05-28 13:50:57.395 +05:00 [INF] Route matched with {action = "GetOverviewStats", controller = "Admin"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetOverviewStats() on controller WebAPI.Controllers.AdminController (WebAPI).
+2025-05-28 13:50:57.397 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Medicines] AS [m]
+2025-05-28 13:50:57.398 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM([m].[Quantity]), 0)
+FROM [Medicines] AS [m]
+2025-05-28 13:50:57.398 +05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Users] AS [u]
+2025-05-28 13:50:57.399 +05:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType3`3[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-05-28 13:50:57.399 +05:00 [INF] Executed action WebAPI.Controllers.AdminController.GetOverviewStats (WebAPI) in 4.0357ms
+2025-05-28 13:50:57.399 +05:00 [INF] Executed endpoint 'WebAPI.Controllers.AdminController.GetOverviewStats (WebAPI)'
+2025-05-28 13:50:57.399 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5222/api/admin/overview - 200 null application/json; charset=utf-8 4.9245ms
